@@ -1,6 +1,14 @@
+
+= Le petit becodeur
+
+CAUTION: Attention ça fait peur 
+
+Le *petit becodeur* rentrait chez lui en passant par le bois de la cambre.
+
 [quote, Paysan, Ruine d'un village devasté]
 *Liste des Destruction
 **Destruction matériel
 ***30 Maison
 ***2 Puit
 ***l'eglise
+
