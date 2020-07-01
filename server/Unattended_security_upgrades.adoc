@@ -5,6 +5,8 @@ even enhance its security.
 
 NOTE:  See https://ubuntu.com/server/docs/package-management in the sub-section "Automatic Updates"
 
+== Installation and setup
+
 [source, bash]
 ----
 #1st) Install unattended-upgrades
@@ -39,8 +41,30 @@ APT::Periodic::AutocleanInterval "7";
 APT::Periodic::Unattended-Upgrade "1";
 ----
 
-* **from the OA** 
-The above configuration updates the package list, downloads, and installs available upgrades every day. The local download archive is cleaned every week. On servers upgraded to newer versions of Ubuntu, depending on your responses, the file listed above may not be there. In this case, creating a new file of this name should also work.
-*
+**from the OA** 
+*The above configuration updates the package list, downloads, and installs available upgrades every day. The local download archive is cleaned every week. On servers upgraded to newer versions of Ubuntu, depending on your responses, the file listed above may not be there. In this case, creating a new file of this name should also work.*
 
+== Notifications trough email
 
+=== via /etc/apt/apt.conf.d/50unattended-upgrades
+[code, bash]
+----
+// Send email to this address for problems or packages upgrades
+// If empty or unset then no email is sent, make sure that you
+// have a working mail setup on your system. A package that provides
+// 'mailx' must be installed. E.g. "user@example.com"
+Unattended-Upgrade::Mail "myName.mySurname+Unattended-Upgrade.enigma.digitalocean@gmail.com";
+----
+
+=== apticron
+
+I'll install it too, I 'll see wether I get flooded by emails. Maybe it's usefull for other purposes
+
+[code, bash]
+----
+#Install apticron
+sudo apt install apticron
+
+#Edit '/etc/apticron/apticron.conf'
+EMAIL="myName.mySurname+Unattended-Upgrade.enigma.digitalocean@gmail.com"
+----
